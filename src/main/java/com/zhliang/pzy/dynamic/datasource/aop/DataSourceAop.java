@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSourceAop {
 
-
+    /**
+     * 只读：
+     * 不是Master注解的对象或方法  && select开头的方法  ||  get开头的方法
+     */
     @Pointcut("!@annotation(com.zhliang.pzy.dynamic.datasource.annotation.Master)"+
             "&&(execution(* com..*Impl.select*(..))"+
             "|| execution(* com..*Impl.get*(..))" +
@@ -18,6 +21,11 @@ public class DataSourceAop {
     public void readPointcut(){
     }
 
+    /**
+     * 写：
+     * Master注解的对象或方法 || insert开头的方法  ||  add开头的方法 || update开头的方法
+     * || edlt开头的方法 || delete开头的方法 || remove开头的方法
+     */
     @Pointcut("@annotation(com.zhliang.pzy.dynamic.datasource.annotation.Master) " +
             "|| execution(* com..*Impl.insert*(..)) " +
             "|| execution(* com..*Impl.add*(..)) " +
