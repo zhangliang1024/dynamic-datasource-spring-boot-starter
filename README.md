@@ -199,3 +199,7 @@ public class TestServiceImpl implements TestService {
     }
 }
 ```
+
+### 三、参考文档
+[微服务-springboot-读写分离（多数据源切换）](https://www.cnblogs.com/qjm201000/p/10362790.html)
+[springboot 多数据源 读写分离 AOP方式](https://blog.csdn.net/Angry_Mills/article/details/89417115)
